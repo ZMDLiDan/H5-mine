@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box{
+			width: 600px;
+			height: 800px;
+			margin: 50px auto;
+			box-shadow:0 0 30px 50px rgba(84,21,255,0.5);
+			position: relative;
+			overflow: hidden;
+		}
+		#one{
+			width: 600px;
+			height: 800px;
+			background: url(img/welcome.jpg);
+		}
+		#header{
+			text-shadow: 10px 10px 2px #666; 
+			font-family:Verdana, Geneva, sans-serif; 
+			font-size:50px; 
+			font-weight: bold; 
+			margin-bottom: 0;
+			color: #885efa;
+			text-align: center;
+			line-height: 80px;
+			transition:0.6s all cubic-bezier(.62,1.55,.46,.55);
+			position: absolute;
+			top: 50px;
+			left: 150px;
+			z-index: 2;
+		}
+		#clock{
+			text-align: center;
+			font-size: 200px;
+			font-weight: bold;
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;
+			top: 50%;
+			margin-top: -50px;
+			transition:0.5s all cubic-bezier(.62,1.99,.46,.55);
+			transform: scale(2);
+		}
+		#two{
+			width: 600px;
+			height: 800px;
+			text-align: center;
+			line-height: 800px;
+			position: relative;
+			background-color: #000;
+			/*background-size: 600px 800px;*/
+		}
+		#bg{
+			opacity: 0.5;
+			transition:1s all;
+			/*display: none;*/
+			transform: rotate(0);
+		}
+		#img{
+			border: rgba(255,255,255,0.5) solid 20px;
+			width: 300px;
+			height: 400px;
+			display: inline-block;
+			transition:1s all;
+			margin: auto;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			transform: scale(0);
+		}
+		#three{
+			width: 600px;
+			height: 800px;
+			background: rgba(0,0,0,1);
+			display: none;
+		}
+		#three img{
+			margin: auto;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			border: rgba(255,255,255,0.5) solid 5px;
+			transition:1s all;
+			opacity: 0.3;
+		}
+		#four{
+			width: 600px;
+			height: 800px;
+			display: none;
+			text-align: center;
+			line-height: 800px;
+			background: rgba(0,0,0,1);
+			text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e; font-family:Verdana, Geneva, sans-serif; font-size:100px; font-weight:bold; color:white;
+		}
+	</style>
+</head>
+<body>
+	<div id='box'>
+		<video src='Planet.mp3' controls="controls" hidden autoplay="autoplay"></video>
+		<div id='one'>
+			<header id='header'>welcome</header>
+			<div id='clock'>3</div>
+		</div>
+		<div id='two'>
+			<img id='bg' src="img/img1.JPG" width='600px' height='800px'/>
+			<img id='img' src="img/img1.JPG" width='300px' height='400px'/>
+		</div>
+		<div id='three'>
+			<img src="img/img1.JPG" width='300px' height='400px'/>
+			<img src="img/img2.JPG" width='300px' height='400px'/>
+			<img src="img/img3.JPG" width='300px' height='400px'/>
+			<img src="img/img4.JPG" width='300px' height='400px'/>
+			<img src="img/img5.JPG" width='300px' height='400px'/>
+			<img src="img/img6.JPG" width='300px' height='400px'/>
+			<img src="img/img7.JPG" width='300px' height='400px'/>
+			<img src="img/img8.JPG" width='300px' height='400px'/>
+			<img src="img/img9.JPG" width='300px' height='400px'/>
+		</div>
+		<div id='four'>
+			<span>谢</span>
+			<span>谢</span>
+			<span>观</span>
+			<span>看</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var oHeader = document.getElementById("header");
+		setTimeout(function() {
+			oHeader.style.left = 150 + 'px';
+			oHeader.style.top = 50 + 'px';
+			setTimeout(function() {
+				oHeader.innerHTML = 'please wait!';
+				oHeader.style.color = 'pink';
+				oHeader.style.left = 200 + 'px';
+				oHeader.style.top = 350 + 'px';
+				setTimeout(function() {
+					oHeader.style.color = 'yellow';
+					oHeader.style.left = 0+ 'px';
+					oHeader.style.top = 700 + 'px';
+					setTimeout(function() {
+						oHeader.style.color = '#8B2323';
+						oHeader.style.left =0+ 'px';
+						oHeader.style.top = 350 + 'px';
+						setTimeout(function() {
+							oHeader.style.color = '#885efa';
+							oHeader.style.left = 130+ 'px';
+							oHeader.style.top = 50 + 'px';
+						}, 600);
+					}, 600);
+				}, 600);
+			}, 600);
+		}, 600);
+		var oClock = document.getElementById("clock");
+		oClock.style.transform = 'scale(1)';
+		var oC = setInterval(function(){
+			if(oClock.innerHTML != 0){
+				oClock.innerHTML = oClock.innerHTML-1;
+				oClock.style.transform = 'scale(2)';
+			}else{
+				clearTimeout(oC);
+			}
+			setTimeout(function() {
+				oClock.style.transform = 'scale(1)';
+			}, 500);
+		},1000)
+
+		setTimeout(function(){
+			document.getElementById("one").style.display = 'none';
+			var i = 2;
+			var oImg = document.getElementById('img');
+			document.getElementById("bg").style.transform = 'rotate(360deg)';
+			oImg.style.transform = 'scale(1)';
+
+			var img = setInterval(function(){
+				if(i==10){
+					clearTimeout(img);
+					document.getElementById("two").style.display = 'none';
+					document.getElementById("three").style.display = 'block';
+					var t = 0;
+					var f = setInterval(function(){
+						if(t!=9){
+							oDeg[t].style.transform = 'rotate('+(-45+10*t)+'deg) scale(1)';
+							oDeg[t].style.opacity = 1;
+							oDeg[t].style.zIndex = t++;
+						}else{
+							for(var i=0;i<oDeg.length;i++){
+								oDeg[i].style.transform = 'rotate('+720+'deg) scale(2)';
+								oDeg[i].style.left = -2000+'px';
+								oDeg[i].style.bottom = -2000+'px';
+							}
+							clearTimeout(f);
+							setTimeout(function(){
+								document.getElementById('three').style.display = 'none';
+								document.getElementById('four').style.display = 'block';
+							},1000)
+							
+						}
+						
+					},1000)
+				}else{
+					setTimeout(function(){
+						oImg.src = 'img/img'+(i)+'.JPG';
+						document.getElementById("bg").src = 'img/img'+(i)+'.JPG';
+						document.getElementById("bg").style.transform = 'rotate('+((i++)*360)+'deg)';
+						oImg.style.transform = 'scale(1)';
+						document.getElementById("bg").style.opacity = 0.5;
+					},1000)
+					oImg.style.transform = 'scale(0)';
+					document.getElementById("bg").style.opacity = 1;
+				}
+			},3000)
+		},3600)
+
+		var oDeg = document.getElementById('three').getElementsByTagName('img');
+		var deg =  -45;
+		for(var i=0;i<oDeg.length;i++){
+			oDeg[i].style.transform = 'rotate('+(deg+=10)+'deg) scale(4)';
+			oDeg[i].style.zIndex = -i;
+		}
+	</script>
+</body>
+</html>
